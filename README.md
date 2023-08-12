@@ -40,4 +40,4 @@ For example, let's make the starting number 6, so `n = 6`:
 
 This is what it would look like plotted on a graph:
 
-![ccseed6](./res/../ccseed6.png) 
+![ccseed6](res/../ccseed6.png) 
