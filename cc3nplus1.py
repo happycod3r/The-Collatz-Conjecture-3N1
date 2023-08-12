@@ -107,8 +107,8 @@ def collatz_conjecture(
 collatz_conjecture(
     ######## EQUATION VARIABLES ###########################################################
     #######################################################################################
-    seed=6,                  # The number to start with. The 'N' in 3N + 1
-    max_calculations=15,       # Lengthen or shorten to control the length of the trailing loop. 
+    seed=2119,                     # The number to start with. The 'N' in 3N + 1
+    max_calculations=300,        # Lengthen or shorten to control the length of the trailing loop. 
     even_divisor=2,             # The number to divide an even number by.
     odd_multiplier=3,           # The number to multiply an odd number by.
     odd_increment=1,            # The number to increment the multiplied odd number by.

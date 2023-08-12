@@ -16,7 +16,7 @@ Here's a step-by-step instruction on how the Collatz Conjecture works:
 - If *`n`* is odd, multiply it by 3 and add 1 to get *`3n + 1`*
 - Repeat the process with the result obtained in step 2 or step 3, and continue applying the same rules to each subsequent number in the sequence.
 
-The conjecture states that, regardless of the initial value of
+> The conjecture states that, regardless of the initial value of
 *`n`*, this sequence will eventually reach the number 1. Once the sequence reaches 1, it will continue in a loop: 1 → 4 → 2 → 1
 
 For example, let's make the starting number 6, so `n = 6`:
@@ -36,8 +36,26 @@ For example, let's make the starting number 6, so `n = 6`:
 12) ***1*** is odd, `1*3 + 1 = 4`
 13) ***4*** is even, `4/2 = 2`
 14) ***2*** is even, `2/2 = 1`
-15) ***1*** is odd, `1*3 + 1 = 4`
 
 This is what it would look like plotted on a graph:
 
 ![ccseed6](res/ccseed6.png) 
+
+As you can see, once the sequence reaches **4** it begins looping 4 - 2 - 1 endlessly.
+Mathematically you can easily understand and see exactly why this happens given the
+two "*rules*" or calculations being applied to even and odd numbers. Although while the 
+conjecture is relatively easy to understand and has been tested extensively for many 
+values of `n` using computers and otherwise, a formal proof of the conjecture's validity 
+or counterexample (*a number that doesn't follow the sequence to 1*) has eluded 
+mathematicians for decades. The Collatz Conjecture remains one of the most famous 
+unsolved problems in number theory. Despite its simplicity, its behavior becomes 
+incredibly complex as the numbers involved increase, making it a fascinating and really cool area of study in mathematics. 
+
+To demonstrate I'll show you the same sequence using a larger number
+like **75** as the seed. 
+
+![ccseed75](res/ccseed75.png)
+
+As you can see no matter the number we end up in the same loop at the end again,  4 - 2 - 1 - 4 - 2 - 1 ... The following image is a zoomed in section of the above graph where the looping starts:
+
+![ccseed75zoomed](res/loop_part.png)
