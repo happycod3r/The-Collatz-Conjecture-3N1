@@ -1,16 +1,8 @@
 import matplotlib.pyplot as mpl
-import random
-import sys 
 
-#
-# The Collatz Conjecture or (3N + 1)
-# 
-# - Pick a random number, x.
-# - If positive do 3x + 1
-# - If negative x / 2
 
-def collatz_conjecture(
-    seed: int, 
+def collatz_conjecture(                        
+    seed: int,
     max_calculations: int=100,
     even_divisor: int=2,
     odd_multiplier: int=3,
@@ -24,18 +16,34 @@ def collatz_conjecture(
     graph_line_style=None) -> None:
 
     def _3np1():
+        """
+        The Collatz Conjecture or (3N + 1) 
+        - Pick a random number (seed) to start with, x.
+        - If it's a positive number do: 3x + 1
+        - If negative x / 2
         
+        """
         def is_even(number: int) -> bool:
-            if number % 2 == 0: return True
-            else: return False
-            
+            """
+            Takes a number and returns True if it is even, and 
+            False otherwise.
+            """
+            if number % 2 == 0: 
+                return True
+            return False
+
         def _process_even(num: int) -> int:
+            """
+            Divides the given number and returns the result. This 
+            function will only ever take a positive integer the result 
+            will always be positive and half of the original input.
+            """
             return int(num / even_divisor)
-        
+
         def _process_odd(num: int) -> int:
             return int(num * odd_multiplier + odd_increment)
-        
-        try:    
+
+        try:
             _seed = seed
             _cap = max_calculations
             index = 0
@@ -46,24 +54,24 @@ def collatz_conjecture(
                 else:
                     _seed = _process_odd(_seed)
                     yield _seed
-                if index == _cap: 
+                if index == _cap:
                     break
                 index = index + 1
-            
+
         except ValueError as e:
-            print("Number is larger than the max of (4300 digits)")
+            print(f"Number is larger than the max of (4300 digits)\n{e}")
         except OverflowError as e:
-            print("Number is too large to convert from int to str.")
+            print(f"Number is too large to convert from int to str.\n{e}")
         except RecursionError as e:
-            print("You broke reality.")
+            print(f"You broke reality.\n{e}")
 
     def plot_graph(x: list, y: list) -> None:
-        
-        mpl.plot(x, y, 
-                 color=graph_line_color, 
-                 linewidth=graph_line_width, 
-                 marker=graph_point_marker, 
-                 markerfacecolor=graph_point_color, 
+
+        mpl.plot(x, y,
+                 color=graph_line_color,
+                 linewidth=graph_line_width,
+                 marker=graph_point_marker,
+                 markerfacecolor=graph_point_color,
                  markersize=graph_point_size,
                  linestyle=graph_line_style)
         mpl.autoscale(True, 'both', True)
@@ -71,10 +79,10 @@ def collatz_conjecture(
         mpl.ylabel('HS Nums')
         mpl.title('The Collatz Conjecture | 3N + 1')
         mpl.grid(True, which='both', axis='both')
-        mpl.show()        
+        mpl.show()
 
-    def calculation_loop():  
-        x_calcs = []      
+    def calculation_loop():
+        x_calcs = []
         y_hailstones = []
         index = 0
         try:
@@ -88,26 +96,25 @@ def collatz_conjecture(
             else:
                 plot_graph(x_calcs, y_hailstones)
         except ValueError as e:
-            print("Number is larger than the max of (4300 digits)")
+            print(f"Number is larger than the max of (4300 digits)\n{e}")
         except OverflowError as e:
-            print("Number is too large to convert from int to str.")
+            print(f"Number is too large to convert from int to str.\n{e}")
         except RecursionError as e:
-            print("You broke reality.")
-    
+            print(f"You broke reality.\n{e}")
+
     calculation_loop()
 
 collatz_conjecture(
-    
     ######## EQUATION VARIABLES ###########################################################
     #######################################################################################
-    seed=1119,                  # The number to start with. The 'N' in 3N + 1
-    max_calculations=100,       # Lengthen or shorten to control the length of the trailing loop. 
+    seed=6,                  # The number to start with. The 'N' in 3N + 1
+    max_calculations=15,       # Lengthen or shorten to control the length of the trailing loop. 
     even_divisor=2,             # The number to divide an even number by.
     odd_multiplier=3,           # The number to multiply an odd number by.
     odd_increment=1,            # The number to increment the multiplied odd number by.
     #######################################################################################
     #######################################################################################
-    
+
     ######### OUTPUT STYLE ################################################################
     ####################################################################################### 
     print_output=False,         # Whether to print the results to output or to plot the results.
