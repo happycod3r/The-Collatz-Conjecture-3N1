@@ -41,6 +41,9 @@ def collatz_conjecture(
             return int(num / even_divisor)
 
         def _process_odd(num: int) -> int:
+            """
+            Multiplies the given number by 3 then adds 1 and returns the result. Since this operation is performed on odd numbers, the result will always be positive.
+            """
             return int(num * odd_multiplier + odd_increment)
 
         try:
@@ -107,8 +110,8 @@ def collatz_conjecture(
 collatz_conjecture(
     ######## EQUATION VARIABLES ###########################################################
     #######################################################################################
-    seed=2119,                     # The number to start with. The 'N' in 3N + 1
-    max_calculations=300,        # Lengthen or shorten to control the length of the trailing loop. 
+    seed=2196,                     # The number to start with. The 'N' in 3N + 1
+    max_calculations=100,        # Lengthen or shorten to control the length of the trailing loop. 
     even_divisor=2,             # The number to divide an even number by.
     odd_multiplier=3,           # The number to multiply an odd number by.
     odd_increment=1,            # The number to increment the multiplied odd number by.
