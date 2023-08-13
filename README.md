@@ -1,5 +1,7 @@
 # The Collatz Conjecture (3N+1)
-In modular arithmetic notation, define the function f as follows:
+
+![CC](res/collatz_by_K.A.Rousan1.webp)
+
 ## [Table of Contents](#table-of-contents)
 
 - [Table of Contents](#table-of-contents)
@@ -33,7 +35,7 @@ Here's a breakdown of the two rules for the Collatz Conjecture and how it works 
 *`n`*, this sequence will eventually reach the number 1. Once the sequence reaches 1, it will continue in a loop: 1 → 4 → 2 → 1
  
 Below is an example of these rules in modern arithmetic notation to better visualize it
-![math notation](math.png)
+![math notation](res/math.png)
 
 ## [Complex Behavior](#complex-behavior)
 
